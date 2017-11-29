@@ -1,0 +1,47 @@
+<%= form_with(model: estabelecimento, local: true) do |form| %>
+  <% if estabelecimento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estabelecimento.errors.count, "error") %> prohibited this estabelecimento from being saved:</h2>
+
+      <ul>
+      <% estabelecimento.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :nome %><br>
+    <%= form.text_field :nome %>
+  </p>
+ 
+  <p>
+    <%= form.label :tipo %><br>
+    <%= form.text_field :tipo %>
+  </p>
+ 
+  <p>
+    <%= form.label :endereco %><br>
+    <%= form.text_field :endereco %>
+  </p>
+ 
+  <p>
+    <%= form.label :cidade %><br>
+    <%= form.text_field :cidade %>
+  </p>
+ 
+  <p>
+    <%= form.label :estado %><br>
+    <%= form.text_field :estado %>
+  </p>
+ 
+  <p>
+    <%= form.label :pais %><br>
+    <%= form.text_field :pais %>
+  </p>
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
