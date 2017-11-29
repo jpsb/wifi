@@ -10,6 +10,7 @@ class EstabelecimentosController < ApplicationController
   # GET /estabelecimentos/1
   # GET /estabelecimentos/1.json
   def show
+    @avaliacao = @estabelecimento.avaliacoes.build
   end
 
   # GET /estabelecimentos/new

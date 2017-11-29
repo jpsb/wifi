@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  internet: MyString
+  velocidade_internet: MyString
+  internet_aberta: MyString
+  senha_internet: MyString
+  comida: MyText
+  bebida: MyText
+  atendimento: 1
+  preco: 1
+  nivel_qualidade: 1
+  nivel_ruido: 1
+  avaliacao_geral: 1
+  estabelecimento: one
+
+two:
+  internet: MyString
+  velocidade_internet: MyString
+  internet_aberta: MyString
+  senha_internet: MyString
+  comida: MyText
+  bebida: MyText
+  atendimento: 1
+  preco: 1
+  nivel_qualidade: 1
+  nivel_ruido: 1
+  avaliacao_geral: 1
+  estabelecimento: two

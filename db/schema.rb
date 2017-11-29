@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128145601) do
+ActiveRecord::Schema.define(version: 20171129135930) do
+
+  create_table "avaliacoes", force: :cascade do |t|
+    t.string "internet"
+    t.string "velocidade_internet"
+    t.string "internet_aberta"
+    t.string "senha_internet"
+    t.text "comida"
+    t.text "bebida"
+    t.integer "atendimento"
+    t.integer "preco"
+    t.integer "nivel_qualidade"
+    t.integer "nivel_ruido"
+    t.integer "avaliacao_geral"
+    t.integer "estabelecimento_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estabelecimento_id"], name: "index_avaliacoes_on_estabelecimento_id"
+  end
 
   create_table "estabelecimentos", force: :cascade do |t|
     t.string "nome"
