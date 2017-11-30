@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129201340) do
+ActiveRecord::Schema.define(version: 20171130135356) do
 
   create_table "avaliacoes", force: :cascade do |t|
     t.string "internet"
@@ -27,7 +27,9 @@ ActiveRecord::Schema.define(version: 20171129201340) do
     t.integer "estabelecimento_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "usuario_id"
     t.index ["estabelecimento_id"], name: "index_avaliacoes_on_estabelecimento_id"
+    t.index ["usuario_id"], name: "index_avaliacoes_on_usuario_id"
   end
 
   create_table "estabelecimentos", force: :cascade do |t|

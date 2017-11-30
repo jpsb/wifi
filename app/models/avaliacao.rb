@@ -5,6 +5,7 @@ class Avaliacao < ApplicationRecord
   enumerize :internet_aberta, in: [:nao, :sim]
 
   belongs_to :estabelecimento
+  belongs_to :usuario
 
   validates :internet, 
             :comida,

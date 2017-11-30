@@ -1,7 +1,7 @@
 class AvaliacoesController < ApplicationController
   def create
     @estabelecimento = Estabelecimento.find(params[:estabelecimento_id])
-    @avaliacao = @estabelecimento.avaliacoes.create(avaliacao_params)
+    @avaliacao = @estabelecimento.avaliacoes.create(avaliacao_params.merge(usuario: current_usuario))
 
     respond_to do |format|
       if @avaliacao.errors.any?
