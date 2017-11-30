@@ -9,6 +9,9 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <p><%= link_to t('links.shared.sign_out'), destroy_usuario_session_path, :method => :delete if usuario_signed_in? %></p>
   </body>
 </html>
