@@ -1,4 +1,7 @@
 class EstabelecimentosController < ApplicationController
+  skip_after_action :verify_authorized
+  skip_before_action :authenticate_usuario!
+
   before_action :set_estabelecimento, only: [:show, :edit, :update, :destroy]
 
   # GET /estabelecimentos
@@ -10,7 +13,7 @@ class EstabelecimentosController < ApplicationController
   # GET /estabelecimentos/1
   # GET /estabelecimentos/1.json
   def show
-    @avaliacao = @estabelecimento.avaliacoes.build
+    @avaliacao = Avaliacao.new
   end
 
   # GET /estabelecimentos/new

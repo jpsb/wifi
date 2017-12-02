@@ -1,0 +1,49 @@
+<%= form_with(model: [ @estabelecimento, @avaliacao ], local: true) do |form| %>
+  <p>
+    <%= form.label :internet %><br>
+    <%= form.text_field :internet %>
+  </p>
+  <p>
+    <%= form.label :velocidade_internet %><br>
+    <%= form.text_field :velocidade_internet %>
+  </p>
+  <p>
+    <%= form.label :internet_aberta %><br>
+    <%= form.text_field :internet_aberta %>
+  </p>
+  <p>
+    <%= form.label :senha_internet %><br>
+    <%= form.text_field :senha_internet %>
+  </p>
+  <p>
+    <%= form.label :comida %><br>
+    <%= form.text_area :comida %>
+  </p>
+  <p>
+    <%= form.label :bebida %><br>
+    <%= form.text_area :bebida %>
+  </p>
+  <p>
+    <%= form.label :atendimento %><br>
+    <%= form.text_field :atendimento %>
+  </p>
+  <p>
+    <%= form.label :preco %><br>
+    <%= form.text_field :preco %>
+  </p>
+  <p>
+    <%= form.label :nivel_qualidade %><br>
+    <%= form.text_field :nivel_qualidade %>
+  </p>
+  <p>
+    <%= form.label :nivel_ruido %><br>
+    <%= form.text_field :nivel_ruido %>
+  </p>
+  <p>
+    <%= form.label :avaliacao_geral %><br>
+    <%= form.text_field :avaliacao_geral %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
