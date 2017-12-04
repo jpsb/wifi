@@ -1,17 +1,26 @@
 class AvaliacoesController < ApplicationController
-  skip_after_action :verify_authorized, only: [:index, :minhas]
+  skip_after_action :verify_authorized, only: [:index, :minhas, :show]
   skip_before_action :authenticate_usuario!, only: [:index]
+
+  has_scope :do_estabelecimento
+  has_scope :com_internet
+  has_scope :com_nota_geral
 
   # GET /avaliacoes
   # GET /avaliaacoes.json
   def index
-    @avaliacoes = Avaliacao.all
+    @avaliacoes = apply_scopes(Avaliacao.all)
   end
 
   # GET /avaliacoes/minhas
   # GET /avaliaacoes/minhas.json
   def minhas
-    @avaliacoes = Avaliacao.do_usuario(current_usuario)
+    @avaliacoes = apply_scopes(Avaliacao.do_usuario(current_usuario))
+  end
+
+  def show
+    @estabelecimento = Estabelecimento.find(params[:estabelecimento_id])
+    @avaliacao = @estabelecimento.avaliacoes.find(params[:id])
   end
 
   def create

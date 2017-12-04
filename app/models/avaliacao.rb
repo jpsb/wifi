@@ -33,5 +33,8 @@ class Avaliacao < ApplicationRecord
   validates :estabelecimento_id, uniqueness: { scope: :usuario }
 
   scope :do_usuario, -> (usuario) { where(usuario: usuario) }
+  scope :com_internet, -> (internets) { where(internet: internets) }
+  scope :com_nota_geral, -> (nota) { where(avaliacao_geral: nota) }
+  scope :do_estabelecimento, -> (estabelecimento) { where(estabelecimento_id: estabelecimento) }
 
 end

@@ -1,0 +1,77 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @avaliacao.estabelecimento.nome %>
+</p>
+ 
+<p>
+  <strong>Internet?</strong>
+  <%= @avaliacao.internet_text %>
+</p>
+
+<p>
+  <strong>Velocidade Internet</strong>
+  <%= @avaliacao.velocidade_internet %>
+</p>
+
+<p>
+  <strong>Internet Aberta?</strong>
+  <%= @avaliacao.internet_aberta_text %>
+</p>
+
+<p>
+  <strong>Senha Internet</strong>
+  <%= @avaliacao.senha_internet %>
+</p>
+
+<p>
+  <strong>Comida</strong>
+  <%= @avaliacao.comida %>
+</p>
+
+<p>
+  <strong>Bebida</strong>
+  <%= @avaliacao.bebida %>
+</p>
+
+<p>
+  <strong>Atendimento</strong>
+  <%= @avaliacao.atendimento %>
+</p>
+
+<p>
+  <strong>Preço</strong>
+  <%= @avaliacao.preco %>
+</p>
+
+<p>
+  <strong>Nível de Qualidade</strong>
+  <%= @avaliacao.nivel_qualidade %>
+</p>
+
+<p>
+  <strong>Nível de Ruído</strong>
+  <%= @avaliacao.nivel_ruido %>
+</p>
+
+<p>
+  <strong>Avaliação Geral</strong>
+  <%= @avaliacao.avaliacao_geral %>
+</p>
+
+<p>
+  <strong>Atualizado em</strong>
+  <%= I18n.l(@avaliacao.updated_at) %>
+</p>
+
+
+<br>
+
+<% if policy(@avaliacao).edit? %>
+  <%= link_to 'Editar', edit_estabelecimento_avaliacao_path(@avaliacao.estabelecimento, @avaliacao) %> |
+  <%= link_to 'Excluir', [@avaliacao.estabelecimento, @avaliacao],
+               method: :delete,
+               data: { confirm: 'Tem certeza?' } %>
+<% end %>
+
