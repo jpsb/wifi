@@ -57,4 +57,9 @@ gem 'enumerize'
 gem 'devise'
 gem 'pundit'
 gem "has_scope"
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'jquery-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 

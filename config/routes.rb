@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :usuarios
+  devise_for :usuarios, controllers: { omniauth_callbacks: :omniauth_callbacks }
+
   resources :estabelecimentos do
     resources :avaliacoes
   end
