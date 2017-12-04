@@ -1,7 +1,7 @@
 <%= form_with(model: [ @estabelecimento, @avaliacao ], local: true) do |form| %>
   <p>
     <%= form.label :internet %><br>
-    <%= form.text_field :internet %>
+    <%= form.select :internet, Avaliacao.internet.options, { include_blank: true } %>
   </p>
   <p>
     <%= form.label :velocidade_internet %><br>
@@ -9,7 +9,7 @@
   </p>
   <p>
     <%= form.label :internet_aberta %><br>
-    <%= form.text_field :internet_aberta %>
+    <%= form.select :internet_aberta, Avaliacao.internet_aberta.options, { include_blank: true } %>
   </p>
   <p>
     <%= form.label :senha_internet %><br>
@@ -25,23 +25,23 @@
   </p>
   <p>
     <%= form.label :atendimento %><br>
-    <%= form.text_field :atendimento %>
+    <%= form.select :atendimento, options_for_select(1..5, @avaliacao.atendimento), { include_blank: true } %>
   </p>
   <p>
     <%= form.label :preco %><br>
-    <%= form.text_field :preco %>
+    <%= form.select :preco, options_for_select(1..5, @avaliacao.preco), { include_blank: true } %>
   </p>
   <p>
     <%= form.label :nivel_qualidade %><br>
-    <%= form.text_field :nivel_qualidade %>
+    <%= form.select :nivel_qualidade, options_for_select(1..5, @avaliacao.nivel_qualidade), { include_blank: true } %>
   </p>
   <p>
     <%= form.label :nivel_ruido %><br>
-    <%= form.text_field :nivel_ruido %>
+    <%= form.select :nivel_ruido, options_for_select(1..5, @avaliacao.nivel_ruido), { include_blank: true } %>
   </p>
   <p>
     <%= form.label :avaliacao_geral %><br>
-    <%= form.text_field :avaliacao_geral %>
+    <%= form.select :avaliacao_geral, options_for_select(1..5, @avaliacao.avaliacao_geral), { include_blank: true } %>
   </p>
   <p>
     <%= form.submit %>

@@ -1,4 +1,7 @@
 class Estabelecimento < ApplicationRecord
+  extend Enumerize
+
+  enumerize :tipo, in: [:cafe, :restaurante, :coworking, :livraria, :outro]
 
   has_many :avaliacoes
 

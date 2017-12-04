@@ -1,4 +1,19 @@
 class AvaliacoesController < ApplicationController
+  skip_after_action :verify_authorized, only: [:index, :minhas]
+  skip_before_action :authenticate_usuario!, only: [:index]
+
+  # GET /avaliacoes
+  # GET /avaliaacoes.json
+  def index
+    @avaliacoes = Avaliacao.all
+  end
+
+  # GET /avaliacoes/minhas
+  # GET /avaliaacoes/minhas.json
+  def minhas
+    @avaliacoes = Avaliacao.do_usuario(current_usuario)
+  end
+
   def create
     authorize Avaliacao
     @estabelecimento = Estabelecimento.find(params[:estabelecimento_id])

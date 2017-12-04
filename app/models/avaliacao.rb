@@ -17,13 +17,21 @@ class Avaliacao < ApplicationRecord
             :avaliacao_geral,
             presence: true
 
-  validates :velocidade_internet,
-            :internet_aberta, 
+  validates :internet_aberta, 
             presence: true,
+            if: "internet && internet.sim?"
+
+  validates :velocidade_internet, 
+            presence: true,
+            numericality: { only_integer: true, greater_than: 0 },
             if: "internet && internet.sim?"
 
   validates :senha_internet,
             presence: true,
             if: "internet_aberta && internet_aberta.nao?"
+
+  validates :estabelecimento_id, uniqueness: { scope: :usuario }
+
+  scope :do_usuario, -> (usuario) { where(usuario: usuario) }
 
 end
