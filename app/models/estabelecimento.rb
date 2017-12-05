@@ -16,4 +16,10 @@ class Estabelecimento < ApplicationRecord
             :tipo,
             presence: true
 
+  before_save do
+    self.endereco_completo = "#{endereco} #{cidade} #{estado} #{pais}"
+  end
+
+  scope :com_nome, -> (nome) { where("nome like ?", "%#{nome}%") }
+
 end

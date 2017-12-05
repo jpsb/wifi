@@ -4,19 +4,21 @@
     <title>Vibbra</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
-    <div class="container">
-        <% flash.each do |name, msg| %>
-            <%= content_tag(:div, msg, class: "alert alert-info") %>
-        <% end %>
+    <main role="main">
+      <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+      <div class="container">
         <%= yield %>
-    </div>
+      </div>
+    </main>
 
-    <p><%= link_to t('links.shared.sign_out'), destroy_usuario_session_path, :method => :delete if usuario_signed_in? %></p>
+    <%= yield :javascript %>
   </body>
 </html>

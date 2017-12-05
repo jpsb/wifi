@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Nome:</strong>
   <%= @estabelecimento.nome %>
@@ -7,36 +5,34 @@
  
 <p>
   <strong>Tipo:</strong>
-  <%= @estabelecimento.tipo %>
+  <%= @estabelecimento.tipo_text %>
 </p>
 
 <p>
   <strong>Endereço:</strong>
-  <%= @estabelecimento.endereco %>
+  <%= endereco_completo(@estabelecimento) %>
 </p>
 
-<p>
-  <strong>Cidade:</strong>
-  <%= @estabelecimento.cidade %>
-</p>
+<h5>Avaliacoes</h5>
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th>ID</th>
+      <th>Estabelecimento</th>
+      <th>Endereço</th>
+      <th>Internet?</th>
+      <th>Nota Geral</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @estabelecimento.estado %>
-</p>
+  <tbody>
+    <%= render @estabelecimento.avaliacoes %>
+  </tbody>
+</table>
 
-<p>
-  <strong>País:</strong>
-  <%= @estabelecimento.pais %>
-</p>
+<hr>
 
-<h2>Avaliacoes</h2>
-<%= render @estabelecimento.avaliacoes %>
-
-<% if policy(Avaliacao).create? %>
-  <h2>Adicionar Avaliação:</h2>
-  <%= render 'avaliacoes/form' %>
-<% end %>
-
-<%= link_to 'Edit', edit_estabelecimento_path(@estabelecimento) %> |
-<%= link_to 'Back', estabelecimentos_path %>
+<%= link_to 'Editar', edit_estabelecimento_path(@estabelecimento) if policy(Estabelecimento).edit? %> |
+<%= link_to 'Avaliar', new_avaliacao_path(estabelecimento_id: @estabelecimento) if policy(@estabelecimento).pode_avaliar? %> |
+<%= link_to 'Voltar', estabelecimentos_path %>

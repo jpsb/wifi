@@ -1,22 +1,11 @@
-<% unless avaliacao.new_record? %>
-  <p>
-    <strong>Internet:</strong>
-    <%= avaliacao.internet %>
-  </p>
+<tr>
+  <td><%= link_to "##{avaliacao.id}", avaliacao %></td>
+  <td><%= avaliacao.estabelecimento.nome %></td>
+  <td><%= endereco_completo(avaliacao.estabelecimento) %></td>
+  <td><%= avaliacao.internet_text %></td>
+  <td><%= avaliacao.avaliacao_geral %></td>
+  <td><%= link_to 'Ver', avaliacao %></td>
+  <td><%= link_to 'Editar', edit_avaliacao_path(avaliacao) if policy(avaliacao).edit? %></td>
+  <td><%= link_to 'Apagar', avaliacao, method: :delete, data: { confirm: 'Tem certeza?' } if policy(avaliacao).edit? %></td>
+</tr>
 
-  <p>
-    <strong>Velocidade Internet:</strong>
-    <%= avaliacao.velocidade_internet %>
-  </p>
-
-  <p>
-    <% if policy(avaliacao).edit? %>
-      <%= link_to 'Editar', edit_estabelecimento_avaliacao_path(avaliacao.estabelecimento, avaliacao) %> |
-      <%= link_to 'Excluir', [avaliacao.estabelecimento, avaliacao],
-                   method: :delete,
-                   data: { confirm: 'Tem certeza?' } %>
-    <% end %>
-  </p>
-
-  <hr>
-<% end %>

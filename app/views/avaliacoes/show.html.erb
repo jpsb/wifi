@@ -1,8 +1,16 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Nome:</strong>
   <%= @avaliacao.estabelecimento.nome %>
+</p>
+ 
+<p>
+  <strong>Tipo:</strong>
+  <%= @avaliacao.estabelecimento.tipo_text %>
+</p>
+ 
+<p>
+  <strong>Endereco:</strong>
+  <%= endereco_completo(@avaliacao.estabelecimento) %>
 </p>
  
 <p>
@@ -66,12 +74,13 @@
 </p>
 
 
-<br>
+<hr>
 
 <% if policy(@avaliacao).edit? %>
-  <%= link_to 'Editar', edit_estabelecimento_avaliacao_path(@avaliacao.estabelecimento, @avaliacao) %> |
-  <%= link_to 'Excluir', [@avaliacao.estabelecimento, @avaliacao],
+  <%= link_to 'Editar', edit_avaliacao_path(@avaliacao) %> |
+  <%= link_to 'Excluir', @avaliacao,
                method: :delete,
-               data: { confirm: 'Tem certeza?' } %>
+               data: { confirm: 'Tem certeza?' } %> | 
 <% end %>
+<%= link_to 'Voltar', avaliacoes_path %>
 

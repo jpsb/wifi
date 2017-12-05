@@ -4,10 +4,12 @@ class EstabelecimentosController < ApplicationController
 
   before_action :set_estabelecimento, only: [:show, :edit, :update, :destroy]
 
+  has_scope :com_nome
+
   # GET /estabelecimentos
   # GET /estabelecimentos.json
   def index
-    @estabelecimentos = Estabelecimento.all
+    @estabelecimentos = apply_scopes(Estabelecimento.all)
   end
 
   # GET /estabelecimentos/1

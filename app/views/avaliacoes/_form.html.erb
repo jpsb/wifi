@@ -1,49 +1,72 @@
-<%= form_with(model: [ @estabelecimento, @avaliacao ], local: true) do |form| %>
-  <p>
-    <%= form.label :internet %><br>
-    <%= form.select :internet, Avaliacao.internet.options, { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.label :velocidade_internet %><br>
-    <%= form.text_field :velocidade_internet %>
-  </p>
-  <p>
-    <%= form.label :internet_aberta %><br>
-    <%= form.select :internet_aberta, Avaliacao.internet_aberta.options, { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.label :senha_internet %><br>
-    <%= form.text_field :senha_internet %>
-  </p>
-  <p>
-    <%= form.label :comida %><br>
-    <%= form.text_area :comida %>
-  </p>
-  <p>
-    <%= form.label :bebida %><br>
-    <%= form.text_area :bebida %>
-  </p>
-  <p>
-    <%= form.label :atendimento %><br>
-    <%= form.select :atendimento, options_for_select(1..5, @avaliacao.atendimento), { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.label :preco %><br>
-    <%= form.select :preco, options_for_select(1..5, @avaliacao.preco), { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.label :nivel_qualidade %><br>
-    <%= form.select :nivel_qualidade, options_for_select(1..5, @avaliacao.nivel_qualidade), { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.label :nivel_ruido %><br>
-    <%= form.select :nivel_ruido, options_for_select(1..5, @avaliacao.nivel_ruido), { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.label :avaliacao_geral %><br>
-    <%= form.select :avaliacao_geral, options_for_select(1..5, @avaliacao.avaliacao_geral), { include_blank: true } %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+<%= form_with(model: avaliacao, local: true) do |form| %>
+  <% if avaliacao.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <ul>
+      <% avaliacao.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :estabelecimento_id, "Estabelecimento" %>
+      <%= form.select :estabelecimento_id, options_from_collection_for_select(Estabelecimento.all.order('nome ASC'), "id", "nome", avaliacao.estabelecimento_id), { include_blank: true }, { class: "form-control" } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :internet, "Internet?" %>
+      <%= form.select :internet, Avaliacao.internet.options, { include_blank: true }, { class: "form-control" } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :velocidade_internet %>
+      <%= form.text_field :velocidade_internet, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :internet_aberta %>
+      <%= form.select :internet_aberta, Avaliacao.internet_aberta.options, { include_blank: true }, { class: "form-control" } %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :senha_internet %>
+      <%= form.text_field :senha_internet, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :comida %>
+      <%= form.text_area :comida, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :bebida %>
+      <%= form.text_area :bebida, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <%= form.label :atendimento %>
+      <%= form.select :atendimento, options_for_select(1..5, avaliacao.atendimento), { include_blank: true }, { class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :preco %>
+      <%= form.select :preco, options_for_select(1..5, avaliacao.preco), { include_blank: true }, { class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :nivel_qualidade %>
+      <%= form.select :nivel_qualidade, options_for_select(1..5, avaliacao.nivel_qualidade), { include_blank: true }, { class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-2">
+      <%= form.label :nivel_ruido %>
+      <%= form.select :nivel_ruido, options_for_select(1..5, avaliacao.nivel_ruido), { include_blank: true }, { class: "form-control"} %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= form.label :avaliacao_geral %>
+      <%= form.select :avaliacao_geral, options_for_select(1..5, avaliacao.avaliacao_geral), { include_blank: true }, { class: "form-control"} %>
+    </div>
+  </div>
+
+  <%= form.submit "Salvar", class: "btn btn-primary" %>
 <% end %>
+
+<hr>

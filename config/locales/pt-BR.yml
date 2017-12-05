@@ -1,0 +1,556 @@
+# encoding: UTF-8
+# pt-BR translations for Ruby on Rails
+pt-BR:
+  # formatos de data e hora
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %B"
+      long: "%d de %B de %Y"
+
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
+
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    order:
+      - :day
+      - :month
+      - :year
+  
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%d/%m, %H:%M h"
+      long: "%A, %d de %B de %Y, %H:%M h"
+    am: ''
+    pm: ''
+
+  # Usado no Array.to_sentence
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: " e "
+
+    select:
+      prompt: "Por favor selecione"
+
+  number:
+    format:
+      separator: ','
+      delimiter: '.'
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: '%u %n'
+        unit: 'R$'
+        separator: ','
+        delimiter: '.'
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: '.'
+
+    precision:
+      format:
+        delimiter: '.'
+
+    human:
+      format:
+        delimiter: '.'
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      # number_to_human()
+      # new in rails 3: please add to other locales
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""     
+          thousand: "mil"
+          million:
+            one: milhão
+            other: milhões
+          billion:
+            one: bilhão
+            other: bilhões
+          trillion:
+            one: trilhão
+            other: trilhões
+          quadrillion:
+            one: quatrilhão
+            other: quatrilhões
+
+  # distancia do tempo em palavras
+  datetime:
+    distance_in_words:
+      half_a_minute: 'meio minuto'
+      less_than_x_seconds:
+        one: 'menos de 1 segundo'
+        other: 'menos de %{count} segundos'
+      x_seconds:
+        one: '1 segundo'
+        other: '%{count} segundos'
+      less_than_x_minutes:
+        one: 'menos de um minuto'
+        other: 'menos de %{count} minutos'
+      x_minutes:
+        one: '1 minuto'
+        other: '%{count} minutos'
+      about_x_hours:
+        one: 'aproximadamente 1 hora'
+        other: 'aproximadamente %{count} horas'
+      x_days:
+        one: '1 dia'
+        other: '%{count} dias'
+      about_x_months:
+        one: 'aproximadamente 1 mês'
+        other: 'aproximadamente %{count} meses'
+      x_months:
+        one: '1 mês'
+        other: '%{count} meses'
+      about_x_years:
+        one: 'aproximadamente 1 ano'
+        other: 'aproximadamente %{count} anos'
+      over_x_years:
+        one: 'mais de 1 ano'
+        other: 'mais de %{count} anos'
+      almost_x_years:
+        one: 'quase 1 ano'
+        other: 'quase %{count} anos'
+    prompts:
+      year:   "Ano"
+      month:  "Mês"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Segundo"
+
+  helpers:
+    select:
+      prompt: "Por favor selecione"
+
+    submit:
+      create: 'Criar %{model}'
+      update: 'Atualizar %{model}'
+      submit: 'Salvar %{model}'
+    
+    links:
+      edit: 'Editar'
+      new: 'Adicionar'
+      cancel: 'Cancelar'
+      delete: 'Excluir'
+      complete: 'Concluir'
+      reschedule: 'Reagendar'
+
+    actions: 'Opções'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    template:
+      header:
+        one: "Não foi possível gravar %{model}: 1 erro"
+        other: "Não foi possível gravar %{model}: %{count} erros."
+      body: "Por favor, verifique o(s) seguinte(s) campo(s):"
+
+    messages: &errors_messages
+      inclusion: "não está incluído na lista"
+      exclusion: "não está disponível"
+      invalid: "não é válido"
+      confirmation: "não confere"
+      accepted: "deve ser aceito"
+      empty: "não pode ficar vazio"
+      blank: "não pode ficar em branco"
+      too_long: "é muito longo (máximo: %{count} caracteres)"
+      too_short: "é muito curto (mínimo: %{count} caracteres)"
+      wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
+      not_a_number: "não é um número"
+      not_an_integer: "não é um número inteiro"
+      greater_than: "deve ser maior que %{count}"
+      greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+      equal_to: "deve ser igual a %{count}"
+      less_than: "deve ser menor que %{count}"
+      less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+      odd: "deve ser ímpar"
+      even: "deve ser par"
+      extension_white_list_error: "de formato inválido"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "Não foi possível gravar %{model}: 1 erro"
+          other: "Não foi possível gravar %{model}: %{count} erros."
+        body: "Por favor, verifique o(s) seguinte(s) campo(s):"
+
+      messages:
+        taken: "já está em uso"
+        record_invalid: "A validação falhou: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"
+
+    attributes:
+      usuario: 
+        email: 'E-mail'
+        nome: 'Nome'
+        creci: 'Creci'
+        encrypted_password: 'Senha' 
+      arquivo: 
+        file: 'Arquivo'
+      anuncio: 
+        link: 'Link'
+  
+  tipos_imovel:
+    index:
+      title: 'Tipos de Imóvel'
+    new:
+      title: "Cadastrar Tipo de Imóvel"
+    edit:
+      title: "Editar Tipo de Imóvel"
+
+  links:
+    shared:
+      back_to_homepage: 'Voltar para Início'
+      edit_info: 'Editar Dados'
+      sign_out: 'Sair'
+
+  enumerize:
+    oportunidade:
+      prioridade:
+        um: "1"
+        dois: "2"
+        tres: "3"
+        quatro: "4"
+        cinco: "5"
+    projeto:
+      prioridade:
+        um: "1"
+        dois: "2"
+        tres: "3"
+        quatro: "4"
+        cinco: "5"        
+    endereco:
+      estado:
+        acre: "Acre"
+        alagoas: "Alagoas"
+        amapa: "Amapá"
+        amazonas: "Amazonas"
+        bahia: "Bahia"
+        ceara: "Ceará"
+        distrito_federal: "Distrito Federal"
+        espirito_santo: "Espírito Santo"
+        goias: "Goiás"
+        maranhao: "Maranhão"
+        mato_grosso: "Mato Grosso"
+        mato_grosso_do_sul: "Mato Grosso do Sul"
+        minas_gerais: "Minas Gerais"
+        para: "Pará"
+        paraiba: "Paraíba"
+        parana: "Paraná"
+        pernambuco: "Pernambuco"
+        piaui: "Piauí"
+        rio_de_janeiro: "Rio De Janeiro"
+        rio_grande_do_norte: "Rio Grande do Norte"
+        rio_grande_do_sul: "Rio Grande do Sul"
+        rondonia: "Rondônia"
+        roraima: "Roraima"
+        santa_catarina: "Santa Catarina"
+        sao_paulo: "São Paulo"
+        sergipe: "Sergipe"
+        tocantins: "Tocantins"
+    horario:
+      dia_da_semana:
+        '0': Domingo
+        '1': Segunda
+        '2': Terça
+        '3': Quarta
+        '4': Quinta
+        '5': Sexta
+        '6': Sábado
+      inicio:
+        'zero': "00:00h"
+        'zero_trinta': "00:30h"
+        'uma': "01:00h"
+        'uma_trinta': "01:30h"
+        'duas': "02:00h"
+        'duas_trinta': "02:30h"
+        'tres': "03:00h"
+        'tres_trinta': "03:30h"
+        'quatro': "04:00h"
+        'quatro_trinta': "04:30h"
+        'cinco': "05:00h"
+        'cinco_trinta': "05:30h"
+        'seis': "06:00h"
+        'seis_trinta': "06:30h"
+        'sete': "07:00h"
+        'sete_trinta': "07:30h"
+        'oito': "08:00h"
+        'oito_trinta': "08:30h"
+        'nove': "09:00h"
+        'nove_trinta': "09:30h"
+        'dez': "10:00h"
+        'dez_trinta': "10:30h"
+        'onze': "11:00h"
+        'onze_trinta': "11:30h"
+        'doze': "12:00h"
+        'doze_trinta': "12:30h"
+        'treze': "13:00h"
+        'treze_trinta': "13:30h"
+        'quatorze': "14:00h"
+        'quatorze_trinta': "14:30h"
+        'quinze': "15:00h"
+        'quinze_trinta': "15:30h"
+        'dezesseis': "16:00h"
+        'dezesseis_trinta': "16:30h"
+        'dezessete': "17:00h"
+        'dezessete_trinta': "17:30h"
+        'dezoito': "18:00h"
+        'dezoito_trinta': "18:30h"
+        'dezenove': "19:00h"
+        'dezenove_trinta': "19:30h"
+        'vinte': "20:00h"
+        'vinte_trinta': "20:30h"
+        'vinte_um': "21:00h"
+        'vinte_um_trinta': "21:30h" 
+        'vinte_dois': "22:00h"
+        'vinte_dois_trinta': "22:30h"
+        'vinte_tres': "23:00h"
+        'vinte_tres_trinta': "23:30h"
+      fim:
+        'zero': "00:00h"
+        'zero_trinta': "00:30h"
+        'uma': "01:00h"
+        'uma_trinta': "01:30h"
+        'duas': "02:00h"
+        'duas_trinta': "02:30h"
+        'tres': "03:00h"
+        'tres_trinta': "03:30h"
+        'quatro': "04:00h"
+        'quatro_trinta': "04:30h"
+        'cinco': "05:00h"
+        'cinco_trinta': "05:30h"
+        'seis': "06:00h"
+        'seis_trinta': "06:30h"
+        'sete': "07:00h"
+        'sete_trinta': "07:30h"
+        'oito': "08:00h"
+        'oito_trinta': "08:30h"
+        'nove': "09:00h"
+        'nove_trinta': "09:30h"
+        'dez': "10:00h"
+        'dez_trinta': "10:30h"
+        'onze': "11:00h"
+        'onze_trinta': "11:30h"
+        'doze': "12:00h"
+        'doze_trinta': "12:30h"
+        'treze': "13:00h"
+        'treze_trinta': "13:30h"
+        'quatorze': "14:00h"
+        'quatorze_trinta': "14:30h"
+        'quinze': "15:00h"
+        'quinze_trinta': "15:30h"
+        'dezesseis': "16:00h"
+        'dezesseis_trinta': "16:30h"
+        'dezessete': "17:00h"
+        'dezessete_trinta': "17:30h"
+        'dezoito': "18:00h"
+        'dezoito_trinta': "18:30h"
+        'dezenove': "19:00h"
+        'dezenove_trinta': "19:30h"
+        'vinte': "20:00h"
+        'vinte_trinta': "20:30h"
+        'vinte_um': "21:00h"
+        'vinte_um_trinta': "21:30h" 
+        'vinte_dois': "22:00h"
+        'vinte_dois_trinta': "22:30h"
+        'vinte_tres': "23:00h"
+        'vinte_tres_trinta': "23:30h"
+    conta:
+      banco:
+        'bb': '001	Banco do Brasil	- BB'
+        'bacen': '002	Banco Central do Brasil	- BACEN'
+        'basa': '003	Banco da Amazônia	- BASA'
+        'bnb': '004	Banco do Nordeste do Brasil	- BNB'
+        'bndes': '007	Banco Nacional de Desenvolvimento Econômico e Social - BNDES'
+        'cef': '104	Caixa Econômica Federal - CEF'
+        'brde': '046	Banco Regional de Desenvolvimento do Extremo Sul - BRDE'
+        'badesul': 'BADESUL Desenvolvimento S.A. - Agência de Fomento/RS - BADESUL'
+        'bandes': 'Banco de Desenvolvimento do Espírito Santo - BANDES'
+        'bdmg': '023	Banco de Desenvolvimento de Minas Gerais - BDMG'
+        'badep': 'Banco de Desenvolvimento do Paraná - BADEP'
+        'brb': '070	Banco de Brasília - BRB'
+        'banese': '047	Banco do Estado de Sergipe - Banese'
+        'banestes': '021	Banco do Estado do Espírito Santo - Banestes'
+        'banpara': '037	Banco do Estado do Pará - Banpará'
+        'banrisul': '041	Banco do Estado do Rio Grande do Sul - Banrisul'
+        'alfa': '025	Banco Alfa - Alfa'
+        'banif': '719	Banco Banif - Banif'
+        'bbm': '107	Banco BBM - BBM'
+        'bmg': '318	Banco BMG - BMG'
+        'bonsucesso': '218	Banco Bonsucesso - Bonsucesso'
+        'btg': '208	Banco BTG Pactual - BTG'
+        'cacique': '263	Banco Cacique - Cacique'
+        'caixa_geral': '263	Banco Caixa Geral - Caixa'
+        'citibank': '745	Banco Citibank - Citibank'
+        'credibel': '721	Banco Credibel - Credibel'
+        'credit_suisse': '505	Banco Credit Suisse'
+        'cruzeiro_do_sul': '229	Banco Cruzeiro do Sul - Cruzeiro do Sul'
+        'daycoal': '707	Banco Daycoval - Daycoval'
+        'fator': '265	Banco Fator - Fator'
+        'fibra': '224	Banco Fibra - Fibra'
+        'gerador': '121	Banco Gerador - Gerador'
+        'guanabara': '612	Banco Guanabara - Guanabara'
+        'bi': '604	Banco Industrial do Brasil - BI'
+        'bicbanco': '320	Banco Industrial e Comercial - BICBANCO'
+        'intercap': '630	Banco Intercap - Intercap'
+        'intermedium': '077	Banco Intermedium - Intermedium'
+        'itaubba': '184	Banco Itaú BBA - Itaú BBA'
+        'itaubank': '479	Banco ItaúBank - ItáuBank'
+        'itaucred': 'M09	Banco Itaucred Financiamentos - Itaucred Financiamentos'
+        'bmb': '389	Banco Mercantil do Brasil - BMB'
+        'modal': '746	Banco Modal - Modal'
+        'morada': '738	Banco Morada - Morada'
+        'panamericano': '623	Banco Panamericano - Panamericano'
+        'paulista': '611	Banco Paulista - Paulista'
+        'pine': '643	Banco Pine - Pine'
+        'prosper': '638	Banco Prosper - Prosper'
+        'renner': '654	Banco Renner - Renner'
+        'brp': '741	Banco Ribeirão Preto - BRP'
+        'rural': '453	Banco Rural - Rural'
+        'safra': '422	Banco Safra - Safra'
+        'santander': '033	Banco Santander - Santander'
+        'sofisa': '637	Banco Sofisa - Sofisa'
+        'topazio': '082	Banco Topázio - Topázio'
+        'bv': '655	Banco Votorantim - BV'
+        'bradesco': '237	Bradesco - Bradesco'
+        'hsbc': '399	HSBC Bank Brasil - HSBC'
+        'itau': '341	Itaú Unibanco - Itaú'
+        'bancoob': '756	Banco Cooperativo do Brasil - BANCOOB'
+        'sicredi': '748	Banco Cooperativo Sicredi - SICREDI'
+    usuario:
+      tipo_profissional:
+        'medico': 'Médico'
+        'dentista': 'Dentista'
+      status:
+        'ativo': 'Ativo'
+        'aguardando_ativacao': 'Aguardando Ativação'
+        'inativo': 'Inativo'
+      perfil:
+        'administrativo_portal': 'Administrativo'
+        'estab_solic_operador': 'Estab. Solicitante - Operador'
+        'estab_solic_gestor': 'Estab. Solicitante - Gestor'
+        'estab_prestador_operador': 'Estab. Prestador - Operador'
+        'estab_prestador_gestor': 'Estab. Prestador - Gestor'
+        'ses_ambul_operador': 'SES - Ambulatório - Operador'
+        'ses_ambul_regulador': 'SES - Ambulatório - Regulador'
+        'ses_ambul_gestor': 'SES - Ambulatório - Gestor'
+        'ses_internacao_operador': 'SES - Internação - Operador'
+        'ses_internacao_regulador': 'SES - Internação - Regulador'
+        'ses_internacao_gestor': 'SES - Internação - Gestor'
+        'ses_samu_operador': 'SES - Samu - Operador'
+        'ses_samu_gestor': 'SES - Samu - Gestor'
+        'ses_operador_geral': 'SES - Geral - Operador'
+        'ses_regulador_geral': 'SES - Geral - Regulador'
+        'ses_gestor_geral': 'SES - Geral - Gestor'
+    cliente:
+      modalidade:
+        'autogestao': 'Autogestões (patrocinadas e não patrocinadas)'
+        'coop_medica': 'Cooperativas médicas'
+        'coop_odontologica': 'Cooperativas odontológicas'
+        'inst_filantropica': 'Instituições filantrópicas'
+        'administradora': 'Administradoras'
+        'seg_especializada': 'Seguradoras especializadas em saúde'
+        'medicina_grupo': 'Medicina de grupo'
+        'odonto_grupo': 'Odontologia de grupo'
+      segmentacao:
+        'ambulatorial': 'Ambulatorial'
+        'hosp_sem_obstetricia': 'Hospitalar SEM Obstetrícia'
+        'hosp_com_obstetricia': 'Hospitalar COM Obstetrícia'
+        'exclusivamente_odonto': 'Exclusivamente Odontológico'
+        'ref_ambulatorial_odonto': 'Referência Ambulatorial + Odontológico'
+        'ambulatorial_hosp_sem_obstetricia': 'Ambulatorial + Hospitalar SEM Obstetrícia'
+        'ambulatorial_hosp_com_obstetricia': 'Ambulatorial + Hospitalar COM Obstetrícia'
+        'hosp_sem_obstetricia_odonto': 'Hospitalar SEM obstetrícia + Odontológico'
+        'hosp_com_obstetricia_odonto': 'Hospitalar COM obstetrícia + Odontológico'
+        'ambulatorial_hosp_sem_obstetricia_odonto': 'Ambulatorial + Hospitalar SEM obstetrícia + Odontológico'
+        'ambulatorial_hosp_com_obstetricia_odonto': 'Ambulatorial + Hospitalar COM obstetrícia + Odontológico'
+      cobertura:
+        'ambulatorial': 'Ambulatorial'
+        'hosp_sem_obstetricia': 'Hospitalar SEM Obstetrícia'
+        'hosp_com_obstetricia': 'Hospitalar COM Obstetrícia'
+        'seg_referencia': 'Dos planos da segmentação Referência'
+        'odontologica': 'Exclusivamente Odontológica'
+    estabelecimento:
+      gestor_responsavel:
+        'sms': '01- SMS'
+        'ses': '02- SES'
+        'banco_mundial': '03-Banco Mundial'
+      modalidade_atendimento:
+        'hospitalar': '02 - Hospitalar'
+    profissional:
+      uf_conselho:
+        acre: "AC"
+        alagoas: "AL"
+        amapa: "AP"
+        amazonas: "AM"
+        bahia: "BA"
+        ceara: "CE"
+        distrito_federal: "DF"
+        espirito_santo: "ES"
+        goias: "GO"
+        maranhao: "MA"
+        mato_grosso: "MT"
+        mato_grosso_do_sul: "MS"
+        minas_gerais: "MG"
+        para: "PA"
+        paraiba: "PB"
+        parana: "PR"
+        pernambuco: "PE"
+        piaui: "PI"
+        rio_de_janeiro: "RJ"
+        rio_grande_do_norte: "RN"
+        rio_grande_do_sul: "RS"
+        rondonia: "RO"
+        roraima: "RR"
+        santa_catarina: "SC"
+        sao_paulo: "SP"
+        sergipe: "SE"
+        tocantins: "TO"
+    internacao:
+      carater_internacao:
+        eletiva: "Retaguarda"
+        urgencia: "Urgência"
+      status:
+        pendente: "Pendente"
+        recusada: "Recusada"
+        cancelada: "Excluída"
+        em_fila: "Fila de Espera"
+        reservado: "Regulada"
+        ocupado: "Ocupada"
+        encerrado: "Encerrada"
+    socorro:
+      tipo:
+        padrao: "Padrão"
+        remocao: "Remoção"
+        transferencia: "Transferência"
+

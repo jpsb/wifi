@@ -1,9 +1,12 @@
 class Usuario < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+
+  has_many :avaliacoes
 
   def self.from_omniauth(auth)
     imagem = auth.info.image.gsub('http://','https://')
@@ -22,6 +25,10 @@ class Usuario < ApplicationRecord
     end
     user_find.save
     user_find
+  end
+
+  def name_or_email
+    name || email
   end
 
 end

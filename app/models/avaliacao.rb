@@ -37,4 +37,9 @@ class Avaliacao < ApplicationRecord
   scope :com_nota_geral, -> (nota) { where(avaliacao_geral: nota) }
   scope :do_estabelecimento, -> (estabelecimento) { where(estabelecimento_id: estabelecimento) }
 
+  scope :do_tipo, -> (tipo) { joins(:estabelecimento).where("estabelecimentos.tipo = ? ", tipo) }
+  scope :com_localizacao, -> (localizacao) { joins(:estabelecimento).where("estabelecimentos.endereco_completo like ? ", "%#{localizacao}%") }
+  scope :com_preco, -> (preco) { where(preco: preco) }
+
+
 end

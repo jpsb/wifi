@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h4>Estabelecimentos</h4>
 
-<h1>Estabelecimentos</h1>
+<br>
 
-<table>
-  <thead>
+<table class="table table-striped">
+  <thead class="thead-light">
     <tr>
       <th>Nome</th>
       <th>Tipo</th>
@@ -18,14 +18,14 @@
         <td><%= estabelecimento.nome %></td>
         <td><%= estabelecimento.tipo %></td>
         <td><%= estabelecimento.endereco %></td>
-        <td><%= link_to 'Show', estabelecimento %></td>
-        <td><%= link_to 'Edit', edit_estabelecimento_path(estabelecimento) %></td>
-        <td><%= link_to 'Destroy', estabelecimento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', estabelecimento %></td>
+        <td><%= link_to 'Editar', edit_estabelecimento_path(estabelecimento) if policy(Estabelecimento).edit? %></td>
+        <td><%= link_to 'Apagar', estabelecimento, method: :delete, data: { confirm: 'Tem certeza?' } if policy(Estabelecimento).edit? %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<hr>
 
-<%= link_to 'New Estabelecimento', new_estabelecimento_path %>
+<%= link_to 'Novo Estabelecimento', new_estabelecimento_path %>
